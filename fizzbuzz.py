@@ -25,7 +25,7 @@ def robot(pos):
 
     return str(pos)
 
-
+"""
 def assert_equals(result, expected):
     from sys import _getframe
 
@@ -54,3 +54,4 @@ if __name__ == '__main__':
     assert_equals(robot(15), 'fizzbuzz')
     assert_equals(robot(30), 'fizzbuzz')
     assert_equals(robot(45), 'fizzbuzz')
+"""
