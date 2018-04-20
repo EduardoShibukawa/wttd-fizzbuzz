@@ -26,19 +26,31 @@ def robot(pos):
     return str(pos)
 
 
+def assert_equals(result, expected):
+    from sys import _getframe
+
+    msg = 'Fail: Line {} got {} expecting {}'
+
+    if result != expected:
+        current = _getframe()
+        caller = current.f_back
+        line = caller.f_lineno
+        print(msg.format(line, result, expected))
+
+
 if __name__ == '__main__':
-    assert robot(1) == '1'
-    assert robot(2) == '2'
-    assert robot(4) == '4'
+    assert_equals(robot(1), '1')
+    assert_equals(robot(2), '2')
+    assert_equals(robot(4), '4')
 
-    assert robot(3) == 'fizz'
-    assert robot(6) == 'fizz'
-    assert robot(9) == 'fizz'
+    assert_equals(robot(3), 'fizz')
+    assert_equals(robot(6), 'fizz')
+    assert_equals(robot(9), 'fizz')
 
-    assert robot(5) == 'buzz'
-    assert robot(10) == 'buzz'
-    assert robot(20) == 'buzz'
+    assert_equals(robot(5), 'buzz')
+    assert_equals(robot(10), 'buzz')
+    assert_equals(robot(20), 'buzz')
 
-    assert robot(15) == 'fizzbuzz'
-    assert robot(30) == 'fizzbuzz'
-    assert robot(45) == 'fizzbuzz'
+    assert_equals(robot(15), 'fizzbuzz')
+    assert_equals(robot(30), 'fizzbuzz')
+    assert_equals(robot(45), 'fizzbuzz')
